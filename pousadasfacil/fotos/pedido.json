@@ -1,7 +1,22 @@
-{"buscas": [
- "bed and breakfast owner", "inn owner portrait", "guesthouse host welcoming", "small hotel owner",
- "brazilian man smiling portrait", "brazilian woman smiling portrait", "man coffee porch mountains", "woman coffee balcony morning",
- "tired man desk night", "woman sleeping peacefully", "traveler backpack front door", "hotel reception check in",
- "man smiling looking at phone", "woman entrepreneur smiling laptop", "farmhouse owner", "couple owners small business"
-],
- "escolhidas": []}
+{
+ "buscas": [
+  "bed and breakfast owner",
+  "inn owner portrait",
+  "guesthouse host welcoming",
+  "small hotel owner",
+  "brazilian man smiling portrait",
+  "brazilian woman smiling portrait",
+  "man coffee porch mountains",
+  "woman coffee balcony morning",
+  "tired man desk night",
+  "woman sleeping peacefully",
+  "traveler backpack front door",
+  "hotel reception check in",
+  "man smiling looking at phone",
+  "woman entrepreneur smiling laptop",
+  "farmhouse owner",
+  "couple owners small business"
+ ],
+ "escolhidas": [],
+ "rodada": 2
+}
