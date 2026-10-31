@@ -11,6 +11,8 @@ jobs:
     steps:
       - uses: actions/checkout@v4
       - run: python3 pousadasfacil/fotos/buscar.py
+        env:
+          UNSPLASH_ACCESS_KEY: ${{ secrets.UNSPLASH_ACCESS_KEY }}
       - run: |
           git config user.name "fotos-bot"
           git config user.email "fotos-bot@users.noreply.github.com"

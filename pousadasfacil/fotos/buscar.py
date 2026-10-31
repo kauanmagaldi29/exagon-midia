@@ -32,11 +32,20 @@ def openverse(q):
                     'link': p.get('foreign_landing_url'), 'licenca': f"{p.get('license')} {p.get('license_version')}", 'fonte': p.get('source'),
                     'url': p.get('url'), 'thumb': p.get('thumbnail')})
     return out
+
+UNSP = os.environ.get('UNSPLASH_ACCESS_KEY')
+def getk(url):
+    r = urllib.request.urlopen(urllib.request.Request(url, headers={**UA, 'Authorization': 'Client-ID ' + UNSP, 'Accept-Version': 'v1'}), timeout=60); return json.loads(r.read())
+def unsplash_api(q):
+    data = getk('https://api.unsplash.com/search/photos?' + urllib.parse.urlencode({'query': q, 'per_page': 30}))
+    return [{'id': 'unsplash:' + p['id'], 'w': p['width'], 'h': p['height'], 'desc': p.get('alt_description') or p.get('description'), 'autor': p['user']['name'],
+             'link': p['links']['html'], 'licenca': 'Unsplash', 'thumb': p['urls']['small'], 'url': p['urls']['raw'], 'dl': p['links']['download_location']}
+            for p in data.get('results', []) if not (p.get('premium') or p.get('plus') or p.get('sponsorship'))]
 for q in ped.get('buscas', []):
     slug = re.sub(r'[^a-z0-9]+', '-', q.lower()).strip('-')
     if res.get(slug): continue
     out = []
-    for fn in ((openverse,) if ped.get('so_openverse') else (unsplash, openverse)):
+    for fn in ((unsplash_api,) if UNSP else (openverse,)):
         try:
             out = fn(q); log(fn.__name__, q, len(out))
             if out: break
@@ -54,7 +63,12 @@ for pid in ped.get('escolhidas', []):
     src, _, i = pid.partition(':'); dest = os.path.join(D, 'originais', f'{src}_{i}.jpg')
     if os.path.exists(dest): continue
     try:
-        if src == 'unsplash':
+        it = allitems.get(pid) or {}
+        if src == 'unsplash' and UNSP:
+            getk(it['dl'])  # avisa o Unsplash do download (regra da licença)
+            save(it['url'] + '&fm=jpg&q=92', dest)
+            cred[pid] = {k: it.get(k) for k in ('autor', 'link', 'w', 'h', 'licenca')}
+        elif src == 'unsplash':
             info = get(f'https://unsplash.com/napi/photos/{i}')
             if info.get('premium') or info.get('plus'): log('pulado Unsplash+', i); continue
             save(f'https://unsplash.com/photos/{i}/download?force=true', dest)
