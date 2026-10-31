@@ -1,22 +1,21 @@
 {
- "so_openverse": true,
  "buscas": [
-  "innkeeper",
-  "hotel owner",
-  "guesthouse",
-  "bed and breakfast host",
-  "hotel receptionist",
-  "farmer smiling",
-  "man drinking coffee",
-  "woman drinking coffee",
-  "smiling woman portrait",
-  "smiling man portrait",
-  "tired man",
-  "sleeping woman",
-  "backpacker",
-  "woman phone smiling",
-  "man laptop",
-  "couple smiling"
+  "bed and breakfast owner",
+  "inn owner portrait",
+  "guesthouse host",
+  "small hotel owner smiling",
+  "man coffee porch mountains",
+  "woman coffee balcony morning",
+  "tired man desk night",
+  "woman sleeping peacefully bed",
+  "traveler backpack door",
+  "man smiling looking at phone",
+  "woman smiling laptop home",
+  "host welcoming guests",
+  "farmhouse owner",
+  "couple small business owners",
+  "brazilian man smiling",
+  "brazilian woman smiling"
  ],
  "escolhidas": []
 }
