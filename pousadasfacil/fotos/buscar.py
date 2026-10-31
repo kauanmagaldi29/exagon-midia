@@ -25,7 +25,7 @@ def unsplash(q):
                     'autor': p['user']['name'], 'link': p['links']['html'], 'licenca': 'Unsplash', 'thumb': p['urls']['small']})
     return out
 def openverse(q):
-    data = get('https://api.openverse.org/v1/images/?' + urllib.parse.urlencode({'q': q, 'license_type': 'commercial,modification', 'category': 'photograph', 'size': 'large', 'page_size': 20}))
+    data = get('https://api.openverse.org/v1/images/?' + urllib.parse.urlencode({'q': q, 'license_type': 'commercial,modification', 'category': 'photograph', 'page_size': 20, 'mature': 'false'}))
     out = []
     for p in data.get('results', []):
         out.append({'id': 'openverse:' + p['id'], 'w': p.get('width'), 'h': p.get('height'), 'desc': p.get('title'), 'autor': p.get('creator'),
@@ -36,7 +36,7 @@ for q in ped.get('buscas', []):
     slug = re.sub(r'[^a-z0-9]+', '-', q.lower()).strip('-')
     if res.get(slug): continue
     out = []
-    for fn in (unsplash, openverse):
+    for fn in ((openverse,) if ped.get('so_openverse') else (unsplash, openverse)):
         try:
             out = fn(q); log(fn.__name__, q, len(out))
             if out: break
