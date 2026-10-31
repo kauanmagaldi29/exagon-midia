@@ -1,0 +1,8 @@
+node_modules/
+artes/out/
+artes/*.html
+video/scenes/
+video/prev/
+video/chk/
+video/*.wav
+video/video_noaudio.mp4

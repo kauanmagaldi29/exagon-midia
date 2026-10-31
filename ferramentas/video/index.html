@@ -1,0 +1,217 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<title>Pousada não evolui</title>
+<style>
+@font-face{font-family:Outfit;font-weight:400;src:url(node_modules/@fontsource/outfit/files/outfit-latin-400-normal.woff2) format('woff2')}
+@font-face{font-family:Outfit;font-weight:500;src:url(node_modules/@fontsource/outfit/files/outfit-latin-500-normal.woff2) format('woff2')}
+@font-face{font-family:Outfit;font-weight:600;src:url(node_modules/@fontsource/outfit/files/outfit-latin-600-normal.woff2) format('woff2')}
+@font-face{font-family:Outfit;font-weight:700;src:url(node_modules/@fontsource/outfit/files/outfit-latin-700-normal.woff2) format('woff2')}
+@font-face{font-family:Outfit;font-weight:800;src:url(node_modules/@fontsource/outfit/files/outfit-latin-800-normal.woff2) format('woff2')}
+@font-face{font-family:Outfit;font-weight:400;src:url(node_modules/@fontsource/outfit/files/outfit-latin-ext-400-normal.woff2) format('woff2');unicode-range:U+0100-024F}
+:root{--g:#1F4D3A;--g2:#2E6B4F;--lg:#E4EEDF;--o:#FF4F1F;--ink:#151515;--mut:#8A857D}
+*{box-sizing:border-box}
+html,body{margin:0;width:1080px;height:1920px;overflow:hidden;background:#F2EEE7;font-family:Outfit,sans-serif;color:var(--ink)}
+#bg{position:absolute;inset:0;background:radial-gradient(circle at 50% 38%,#FFFFFF 0%,#F4F0EA 48%,#E6E0D6 100%)}
+#dots{position:absolute;inset:-40px;background-image:radial-gradient(rgba(31,77,58,.10) 2px,transparent 2.4px);background-size:44px 44px;opacity:.55}
+#stage{position:absolute;inset:0;transform-origin:50% 42%}
+.el{position:absolute;transform:translate(-50%,-50%);opacity:0;visibility:hidden;will-change:transform,opacity}
+.card{background:#fff;border-radius:40px;box-shadow:0 26px 60px rgba(50,38,24,.13),0 4px 14px rgba(50,38,24,.06)}
+.tile{width:170px;height:170px;border-radius:46px;display:flex;align-items:center;justify-content:center;box-shadow:0 22px 50px rgba(31,77,58,.28)}
+.tile svg{width:92px;height:92px}
+.lbl{position:absolute;left:50%;transform:translateX(-50%);white-space:nowrap;font-weight:600;font-size:36px;color:var(--ink)}
+.ic{fill:none;stroke:#fff;stroke-width:2;stroke-linecap:round;stroke-linejoin:round}
+.ico{fill:none;stroke:currentColor;stroke-width:2.2;stroke-linecap:round;stroke-linejoin:round}
+.chip{display:inline-flex;align-items:center;gap:20px;height:110px;padding:0 44px 0 24px;border-radius:55px;background:#fff;font-weight:600;font-size:44px;white-space:nowrap;box-shadow:0 18px 44px rgba(50,38,24,.13)}
+.chip .dot{width:66px;height:66px;border-radius:50%;display:flex;align-items:center;justify-content:center;flex:none}
+.chip .dot svg{width:38px;height:38px}
+.chip.dark{background:#1A1A1A;color:#fff}
+.big{font-weight:700;letter-spacing:-.04em;line-height:.9}
+.o{color:var(--o)} .g{color:var(--g)}
+.row{display:flex;align-items:center;justify-content:space-between;font-size:40px;font-weight:500}
+#wipe{position:absolute;inset:0;background:var(--g);transform:translateX(100%)}
+#wipe2{position:absolute;inset:0;background:var(--g);transform:translateX(100%)}
+.wtxt{position:absolute;left:0;right:0;text-align:center;color:#fff}
+#cap{position:absolute;left:80px;right:80px;top:1440px;text-align:center;font-weight:600;font-size:62px;line-height:1.14;letter-spacing:-.015em;text-wrap:balance;color:var(--ink)}
+#cap.on-dark{color:#fff}
+#cap .seg{display:none}
+#cap .w{display:inline-block;opacity:0}
+#cap .hl{color:var(--o)}
+#capbg{position:absolute;left:0;right:0;top:1300px;height:620px;background:linear-gradient(180deg,rgba(242,238,231,0) 0%,rgba(242,238,231,.85) 30%,rgba(242,238,231,.92) 100%);opacity:1}
+</style>
+</head>
+<body>
+<div id="bg"></div><div id="dots"></div>
+<div id="stage">
+
+<!-- ================= A · hook -->
+<div class="el" id="aIcon" style="left:540px;top:700px">
+  <div class="tile" style="width:260px;height:260px;border-radius:70px;background:linear-gradient(160deg,#2E6B4F,#1F4D3A)"><svg viewBox="0 0 24 24" style="width:140px;height:140px"><path class="ic" d="M3.5 11 12 4.5l8.5 6.5v8.5a1 1 0 0 1-1 1h-4.5v-6h-6v6H4.5a1 1 0 0 1-1-1z"/></svg></div>
+  <div class="lbl" style="top:290px;font-size:46px">Sua pousada</div>
+</div>
+<div class="el" id="aSat1" style="left:250px;top:430px"><div class="tile" style="background:#fff;box-shadow:0 18px 40px rgba(50,38,24,.14)"><svg viewBox="0 0 24 24"><g class="ico" style="color:#1F4D3A"><circle cx="8" cy="12" r="4"/><path d="M12 12h9M18 12v3M21 12v2"/></g></svg></div><div class="lbl" style="top:185px">Chaves</div></div>
+<div class="el" id="aSat2" style="left:830px;top:430px"><div class="tile" style="background:#fff;box-shadow:0 18px 40px rgba(50,38,24,.14)"><svg viewBox="0 0 24 24"><g class="ico" style="color:#1F4D3A"><circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3a14 14 0 0 1 0 18M12 3a14 14 0 0 0 0 18"/></g></svg></div><div class="lbl" style="top:185px">Site</div></div>
+<div class="el" id="aSat3" style="left:830px;top:880px"><div class="tile" style="background:#fff;box-shadow:0 18px 40px rgba(50,38,24,.14)"><svg viewBox="0 0 24 24"><g class="ico" style="color:#1F4D3A"><path d="M4 5h16v11H9l-5 4z"/></g></svg></div><div class="lbl" style="top:185px">Atendimento</div></div>
+<div class="el" id="aSat4" style="left:250px;top:880px"><div class="tile" style="background:#fff;box-shadow:0 18px 40px rgba(50,38,24,.14)"><svg viewBox="0 0 24 24"><g class="ico" style="color:#1F4D3A"><rect x="3" y="4" width="18" height="17" rx="2"/><path d="M3 9h18M8 2v4M16 2v4"/></g></svg></div><div class="lbl" style="top:185px">Reservas</div></div>
+<div class="el card" id="aChart" style="left:540px;top:1245px;width:760px;height:250px;padding:34px 44px">
+  <div style="display:flex;justify-content:space-between;align-items:baseline"><span style="font-size:36px;font-weight:600;color:var(--mut)">Evolução da pousada</span><span class="big o" id="aPct" style="font-size:76px">0%</span></div>
+  <svg viewBox="0 0 680 110" style="width:672px;height:110px;margin-top:10px"><path id="aLine" d="M10 60 C 120 58, 200 64, 300 61 S 480 58, 560 63 S 640 66, 670 64" fill="none" stroke="#FF4F1F" stroke-width="7" stroke-linecap="round" stroke-dasharray="800" stroke-dashoffset="800"/><path d="M10 100 H670" stroke="#ECE7E0" stroke-width="3"/></svg>
+</div>
+
+<!-- ================= B · fechaduras -->
+<div class="el card" id="bKey" style="left:300px;top:640px;width:400px;height:430px;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:26px">
+  <svg viewBox="0 0 24 24" style="width:170px;height:170px"><g class="ico" style="color:#5C574F;stroke-width:1.7"><circle cx="7.5" cy="12" r="4.2"/><circle cx="7.5" cy="12" r="1.2"/><path d="M11.7 12h9.5M18 12v3.2M21 12v2.2"/></g></svg>
+  <div style="font-size:40px;font-weight:600;text-align:center;line-height:1.1">Fechadura<br>mecânica</div>
+  <div id="bKeyX" style="position:absolute;right:-26px;top:-26px;width:96px;height:96px;border-radius:50%;background:var(--o);display:flex;align-items:center;justify-content:center;box-shadow:0 12px 30px rgba(255,79,31,.4)"><svg viewBox="0 0 24 24" style="width:52px;height:52px"><path class="ic" stroke-width="3" d="M6.5 6.5l11 11M17.5 6.5l-11 11"/></svg></div>
+</div>
+<div class="el" id="bLock" style="left:790px;top:640px;width:300px;height:560px;border-radius:56px;background:linear-gradient(170deg,#2A2A2A,#151515);box-shadow:0 30px 70px rgba(0,0,0,.3);padding:46px 36px">
+  <div style="height:120px;border-radius:24px;background:#0B0B0B;display:flex;align-items:center;justify-content:center;font-weight:700;font-size:76px;letter-spacing:.06em;color:#FF7A45" id="bLockScr">1234</div>
+  <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:22px;margin-top:40px;justify-items:center">
+    <i style="width:46px;height:46px;border-radius:50%;background:#333"></i><i style="width:46px;height:46px;border-radius:50%;background:#333"></i><i style="width:46px;height:46px;border-radius:50%;background:#333"></i>
+    <i style="width:46px;height:46px;border-radius:50%;background:#333"></i><i style="width:46px;height:46px;border-radius:50%;background:#333"></i><i style="width:46px;height:46px;border-radius:50%;background:#333"></i>
+    <i style="width:46px;height:46px;border-radius:50%;background:#333"></i><i style="width:46px;height:46px;border-radius:50%;background:#333"></i><i style="width:46px;height:46px;border-radius:50%;background:#333"></i>
+  </div>
+  <div id="bLed" style="margin:34px auto 0;width:70px;height:12px;border-radius:6px;background:#FF4F1F"></div>
+</div>
+<div class="el" id="bG1" style="left:540px;top:1030px"><div class="chip"><span class="dot" style="background:#EEE9E2"><svg viewBox="0 0 24 24"><g class="ico" style="color:#5C574F"><circle cx="12" cy="8" r="4"/><path d="M4 21a8 8 0 0 1 16 0"/></g></svg></span>Hóspede de março<span class="o" style="margin-left:18px;font-weight:700">1234</span></div></div>
+<div class="el" id="bG2" style="left:540px;top:1150px"><div class="chip"><span class="dot" style="background:#EEE9E2"><svg viewBox="0 0 24 24"><g class="ico" style="color:#5C574F"><circle cx="12" cy="8" r="4"/><path d="M4 21a8 8 0 0 1 16 0"/></g></svg></span>Hóspede de julho<span class="o" style="margin-left:18px;font-weight:700">1234</span></div></div>
+<div class="el" id="bG3" style="left:540px;top:1270px"><div class="chip"><span class="dot" style="background:#EEE9E2"><svg viewBox="0 0 24 24"><g class="ico" style="color:#5C574F"><circle cx="12" cy="8" r="4"/><path d="M4 21a8 8 0 0 1 16 0"/></g></svg></span>Hóspede de ontem<span class="o" style="margin-left:18px;font-weight:700">1234</span></div></div>
+<div class="el" id="bWarn" style="left:540px;top:330px"><div class="chip dark"><span class="dot" style="background:var(--o)"><svg viewBox="0 0 24 24"><path class="ic" stroke="#000" stroke-width="2.6" d="M12 4 21.5 20h-19z M12 10v4.5 M12 17.5v.3"/></svg></span>A mesma senha pra todo mundo</div></div>
+
+<!-- ================= C · sistema + site -->
+<div class="el card" id="cWin" style="left:540px;top:640px;width:880px;height:600px;overflow:hidden">
+  <div style="height:76px;background:#F1EDE7;display:flex;align-items:center;gap:14px;padding:0 30px"><i style="width:20px;height:20px;border-radius:50%;background:#E0D9CF"></i><i style="width:20px;height:20px;border-radius:50%;background:#E0D9CF"></i><i style="width:20px;height:20px;border-radius:50%;background:#E0D9CF"></i><span style="margin-left:20px;font-size:28px;color:var(--mut);font-weight:500">Sistema de gestão</span></div>
+  <div style="display:flex;height:524px">
+    <div style="width:200px;background:#FAF8F5;padding:30px 26px;display:flex;flex-direction:column;gap:22px"><i style="height:22px;border-radius:11px;background:#E9E3DA"></i><i style="height:22px;width:80%;border-radius:11px;background:#E9E3DA"></i><i style="height:22px;width:65%;border-radius:11px;background:#E9E3DA"></i><i style="height:22px;width:75%;border-radius:11px;background:#E9E3DA"></i></div>
+    <div style="flex:1;position:relative;padding:40px">
+      <i style="display:block;height:30px;width:60%;border-radius:15px;background:#EFEAE3"></i>
+      <i style="display:block;height:30px;width:40%;border-radius:15px;background:#EFEAE3;margin-top:18px"></i>
+      <svg id="cSpin" viewBox="0 0 50 50" style="position:absolute;left:50%;top:44%;width:120px;height:120px;margin:-60px 0 0 -60px"><circle cx="25" cy="25" r="20" fill="none" stroke="#E9E3DA" stroke-width="5"/><path d="M25 5a20 20 0 0 1 20 20" fill="none" stroke="#FF4F1F" stroke-width="5" stroke-linecap="round"/></svg>
+      <div id="cErr" style="position:absolute;left:40px;right:40px;bottom:40px;height:110px;border-radius:24px;background:#FFF0EA;border:2px solid #FFC9B5;display:flex;align-items:center;gap:20px;padding:0 28px;font-size:34px;font-weight:600;color:#B9381A"><svg viewBox="0 0 24 24" style="width:46px;height:46px;flex:none"><path fill="none" stroke="#FF4F1F" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" d="M12 4 21.5 20h-19z M12 10v4.5 M12 17.5v.3"/></svg>Erro ao sincronizar reservas</div>
+    </div>
+  </div>
+</div>
+<div class="el card" id="cFun" style="left:540px;top:1080px;width:880px;height:330px;display:flex;align-items:center;justify-content:space-around;padding:0 40px">
+  <div style="text-align:center"><div class="big" id="cVis" style="font-size:150px">0</div><div style="font-size:38px;font-weight:600;color:var(--mut);margin-top:12px">visitas no site</div></div>
+  <svg viewBox="0 0 24 24" style="width:80px;height:80px"><path fill="none" stroke="#C9C2B8" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" d="M4 12h15M13 6l6 6-6 6"/></svg>
+  <div style="text-align:center"><div class="big o" style="font-size:150px">0</div><div style="font-size:38px;font-weight:600;color:var(--mut);margin-top:12px">reservas</div></div>
+</div>
+
+<!-- ================= D · taxas das plataformas -->
+<div class="el" id="dTot" style="left:540px;top:420px;text-align:center">
+  <div class="big o" id="dTotV" style="font-size:170px;white-space:nowrap">−R$ 0</div>
+  <div style="font-size:42px;font-weight:600;color:var(--mut);margin-top:16px">em taxas pras plataformas</div>
+</div>
+<div class="el card" id="dR1" style="left:540px;top:780px;width:860px;height:170px;display:flex;align-items:center;gap:30px;padding:0 36px"><div class="tile" style="width:104px;height:104px;border-radius:30px;background:#ECE7DF;box-shadow:none"><svg viewBox="0 0 24 24" style="width:56px;height:56px"><g class="ico" style="color:#6E685F"><circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3a14 14 0 0 1 0 18M12 3a14 14 0 0 0 0 18"/></g></svg></div><div style="flex:1"><div style="font-size:30px;color:var(--mut);font-weight:500">Reserva pela plataforma</div><div style="font-size:44px;font-weight:600">Quarto 02 · R$ 560</div></div><div class="chip" style="height:84px;font-size:38px;padding:0 30px;background:#FFF0EA;color:#D63B12;box-shadow:none">−15%</div></div>
+<div class="el card" id="dR2" style="left:540px;top:980px;width:860px;height:170px;display:flex;align-items:center;gap:30px;padding:0 36px"><div class="tile" style="width:104px;height:104px;border-radius:30px;background:#ECE7DF;box-shadow:none"><svg viewBox="0 0 24 24" style="width:56px;height:56px"><g class="ico" style="color:#6E685F"><circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3a14 14 0 0 1 0 18M12 3a14 14 0 0 0 0 18"/></g></svg></div><div style="flex:1"><div style="font-size:30px;color:var(--mut);font-weight:500">Reserva pela plataforma</div><div style="font-size:44px;font-weight:600">Quarto 04 · R$ 840</div></div><div class="chip" style="height:84px;font-size:38px;padding:0 30px;background:#FFF0EA;color:#D63B12;box-shadow:none">−15%</div></div>
+<div class="el card" id="dR3" style="left:540px;top:1180px;width:860px;height:170px;display:flex;align-items:center;gap:30px;padding:0 36px"><div class="tile" style="width:104px;height:104px;border-radius:30px;background:#ECE7DF;box-shadow:none"><svg viewBox="0 0 24 24" style="width:56px;height:56px"><g class="ico" style="color:#6E685F"><circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3a14 14 0 0 1 0 18M12 3a14 14 0 0 0 0 18"/></g></svg></div><div style="flex:1"><div style="font-size:30px;color:var(--mut);font-weight:500">Reserva pela plataforma</div><div style="font-size:44px;font-weight:600">Quarto 01 · R$ 420</div></div><div class="chip" style="height:84px;font-size:38px;padding:0 30px;background:#FFF0EA;color:#D63B12;box-shadow:none">−15%</div></div>
+
+<!-- ================= E · última hora -->
+<div class="el card" id="eNote" style="left:540px;top:380px;width:880px;height:170px;display:flex;align-items:center;gap:30px;padding:0 36px"><div class="tile" style="width:104px;height:104px;border-radius:30px;background:var(--g);box-shadow:none"><svg viewBox="0 0 24 24" style="width:58px;height:58px"><g class="ic"><path d="M6 16V11a6 6 0 0 1 12 0v5l2 2H4z"/><path d="M10 21h4"/></g></svg></div><div style="flex:1"><div style="font-size:30px;color:var(--mut);font-weight:500">Pousada · agora</div><div style="font-size:44px;font-weight:600">Hóspede chegando na porta</div></div></div>
+<div class="el" id="eClock" style="left:540px;top:760px;text-align:center">
+  <div class="big" id="eClockV" style="font-size:260px">23:41</div>
+  <div style="display:inline-flex;align-items:center;gap:16px;font-size:42px;font-weight:600;color:var(--mut);margin-top:10px"><svg viewBox="0 0 24 24" style="width:48px;height:48px"><path fill="none" stroke="#8A857D" stroke-width="2.2" stroke-linejoin="round" d="M20 14A8 8 0 1 1 10 4a7 7 0 0 0 10 10z"/></svg>última hora</div>
+</div>
+<div class="el" id="eYou" style="left:540px;top:1170px"><div class="chip" style="height:150px;font-size:58px;padding:0 60px 0 30px;gap:28px"><span class="dot" style="width:96px;height:96px;background:var(--o)"><svg viewBox="0 0 24 24" style="width:56px;height:56px"><g class="ic" stroke="#000" stroke-width="2.4"><circle cx="12" cy="8" r="4"/><path d="M4 21a8 8 0 0 1 16 0"/></g></svg></span>Quem atende: <b class="o" style="margin-left:6px">você</b></div></div>
+
+<!-- ================= F · contratar alguém -->
+<div class="el card" id="fHire" style="left:540px;top:430px;width:640px;height:220px;display:flex;align-items:center;gap:34px;padding:0 40px"><div style="width:130px;height:130px;border-radius:50%;background:#ECE7DF;display:flex;align-items:center;justify-content:center"><svg viewBox="0 0 24 24" style="width:76px;height:76px"><g class="ico" style="color:#6E685F"><circle cx="12" cy="8" r="4"/><path d="M4 21a8 8 0 0 1 16 0"/></g></svg></div><div><div style="font-size:32px;color:var(--mut);font-weight:500">Contratado</div><div style="font-size:52px;font-weight:600">Recepcionista</div></div></div>
+<div class="el card" id="fRec" style="left:540px;top:930px;width:640px;height:560px;padding:50px 54px">
+  <div style="display:flex;align-items:center;gap:18px;font-size:34px;font-weight:600;color:var(--mut)"><svg viewBox="0 0 24 24" style="width:46px;height:46px"><g class="ico" style="color:#8A857D"><path d="M6 3h12v18l-3-2-3 2-3-2-3 2z"/><path d="M9 8h6M9 12h6"/></g></svg>Todo mês</div>
+  <div class="row" id="fL1" style="margin-top:46px"><span>Salário</span><b class="o">R$ ••••</b></div>
+  <div style="height:3px;background:#F0EBE4;margin:26px 0"></div>
+  <div class="row" id="fL2"><span>Encargos</span><b class="o">R$ ••••</b></div>
+  <div style="height:3px;background:#F0EBE4;margin:26px 0"></div>
+  <div class="row" id="fL3"><span>Hora extra</span><b class="o">R$ ••••</b></div>
+</div>
+
+<!-- ================= H · Pousadas Fácil -->
+<div class="el" id="hBrand" style="left:540px;top:760px;text-align:center">
+  <div style="display:inline-flex;align-items:center;gap:34px"><span style="width:150px;height:150px;border-radius:50%;background:var(--o);display:flex;align-items:center;justify-content:center;box-shadow:0 20px 50px rgba(255,79,31,.35)"><i style="width:54px;height:54px;border-radius:50%;background:#151515"></i></span><span class="big" style="font-size:132px;letter-spacing:-.045em">Pousadas<br>Fácil</span></div>
+  <div style="font-size:44px;font-weight:500;color:var(--mut);margin-top:40px">sua pousada funcionando sozinha</div>
+</div>
+
+<!-- ================= I · reserva direta -->
+<div class="el" id="iPhone" style="left:330px;top:820px;width:430px;height:860px;border-radius:70px;background:#151515;padding:20px;box-shadow:0 34px 80px rgba(0,0,0,.25)">
+  <div style="width:100%;height:100%;border-radius:52px;background:#fff;overflow:hidden;position:relative">
+    <div style="height:70px;display:flex;align-items:center;justify-content:center;font-size:24px;color:var(--mut)">pousadadaserra.com.br</div>
+    <div id="iScrA" style="position:absolute;left:0;right:0;top:70px;bottom:0;padding:0 30px">
+      <div style="height:240px;border-radius:30px;background:linear-gradient(170deg,#9EC28F,#2E6B4F)"></div>
+      <div style="font-size:40px;font-weight:700;margin-top:26px">Pousada da Serra</div>
+      <div style="font-size:26px;color:var(--mut);margin-top:6px">2 noites · Quarto 03</div>
+      <div style="font-size:46px;font-weight:700;margin-top:30px">R$ 560</div>
+      <div style="position:absolute;left:30px;right:30px;bottom:40px;height:96px;border-radius:48px;background:#151515;color:#fff;font-size:34px;font-weight:600;display:flex;align-items:center;justify-content:center">Reservar</div>
+    </div>
+    <div id="iScrB" style="position:absolute;left:0;right:0;top:70px;bottom:0;padding:0 30px;text-align:center;opacity:0">
+      <div style="width:170px;height:170px;border-radius:50%;background:var(--o);margin:90px auto 0;display:flex;align-items:center;justify-content:center"><svg viewBox="0 0 24 24" style="width:96px;height:96px"><path class="ic" stroke="#000" stroke-width="2.6" d="M5 12.5l4.5 4.5L19 7.5"/></svg></div>
+      <div style="font-size:40px;font-weight:700;margin-top:40px">Reserva confirmada</div>
+      <div style="font-size:28px;color:var(--mut);margin-top:10px">PIX aprovado · R$ 560</div>
+      <div style="margin:40px 0 0;height:3px;background:#EEE"></div>
+      <div class="row" style="font-size:30px;margin-top:30px"><span>Comissão</span><b class="o">R$ 0</b></div>
+    </div>
+  </div>
+</div>
+<div class="el" id="iC1" style="left:770px;top:560px"><div class="chip"><span class="dot" style="background:var(--lg)"><svg viewBox="0 0 24 24"><path fill="none" stroke="#1F4D3A" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" d="M5 12.5l4.5 4.5L19 7.5"/></svg></span>Direto no site</div></div>
+<div class="el" id="iC2" style="left:770px;top:720px"><div class="chip"><span class="dot" style="background:var(--lg)"><svg viewBox="0 0 24 24"><path fill="none" stroke="#1F4D3A" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" d="M5 12.5l4.5 4.5L19 7.5"/></svg></span>Paga na hora</div></div>
+<div class="el" id="iC3" style="left:770px;top:880px"><div class="chip" style="background:var(--o);color:#000"><span class="dot" style="background:#fff"><svg viewBox="0 0 24 24"><path fill="none" stroke="#000" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" d="M5 12.5l4.5 4.5L19 7.5"/></svg></span>Comissão R$ 0</div></div>
+
+<!-- ================= J · senha nova -->
+<div class="el" id="jLock" style="left:790px;top:700px;width:300px;height:560px;border-radius:56px;background:linear-gradient(170deg,#2A2A2A,#151515);box-shadow:0 30px 70px rgba(0,0,0,.3);padding:46px 36px">
+  <div style="height:120px;border-radius:24px;background:#0B0B0B;display:flex;align-items:center;justify-content:center;font-weight:700;font-size:76px;letter-spacing:.06em;color:#FF7A45" id="jLockScr">4827</div>
+  <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:22px;margin-top:40px;justify-items:center">
+    <i style="width:46px;height:46px;border-radius:50%;background:#333"></i><i style="width:46px;height:46px;border-radius:50%;background:#333"></i><i style="width:46px;height:46px;border-radius:50%;background:#333"></i>
+    <i style="width:46px;height:46px;border-radius:50%;background:#333"></i><i style="width:46px;height:46px;border-radius:50%;background:#333"></i><i style="width:46px;height:46px;border-radius:50%;background:#333"></i>
+    <i style="width:46px;height:46px;border-radius:50%;background:#333"></i><i style="width:46px;height:46px;border-radius:50%;background:#333"></i><i style="width:46px;height:46px;border-radius:50%;background:#333"></i>
+  </div>
+  <div id="jLed" style="margin:34px auto 0;width:70px;height:12px;border-radius:6px;background:#3DDC84"></div>
+</div>
+<div class="el" id="jG1" style="left:330px;top:520px"><div class="chip" id="jG1c"><span class="dot" style="background:var(--lg)"><svg viewBox="0 0 24 24"><g class="ico" style="color:#1F4D3A"><circle cx="12" cy="8" r="4"/><path d="M4 21a8 8 0 0 1 16 0"/></g></svg></span>Ana<span class="o" id="jG1n" style="margin-left:14px;font-weight:700;position:relative">4827</span></div></div>
+<div class="el" id="jG2" style="left:330px;top:680px"><div class="chip"><span class="dot" style="background:var(--lg)"><svg viewBox="0 0 24 24"><g class="ico" style="color:#1F4D3A"><circle cx="12" cy="8" r="4"/><path d="M4 21a8 8 0 0 1 16 0"/></g></svg></span>Bruno<span class="o" style="margin-left:14px;font-weight:700">1593</span></div></div>
+<div class="el" id="jG3" style="left:330px;top:840px"><div class="chip"><span class="dot" style="background:var(--lg)"><svg viewBox="0 0 24 24"><g class="ico" style="color:#1F4D3A"><circle cx="12" cy="8" r="4"/><path d="M4 21a8 8 0 0 1 16 0"/></g></svg></span>Carla<span class="o" style="margin-left:14px;font-weight:700">7064</span></div></div>
+<div class="el" id="jExp" style="left:540px;top:1170px"><div class="chip dark"><span class="dot" style="background:var(--o)"><svg viewBox="0 0 24 24"><g class="ic" stroke="#000" stroke-width="2.4"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></g></svg></span>Check-out 12:00 · <span style="color:#FF8A5C;margin-left:10px">senha apagada</span></div></div>
+
+<!-- ================= K · 24h -->
+<div class="el card" id="kChat" style="left:540px;top:440px;width:880px;height:330px;padding:34px 40px">
+  <div style="display:flex;align-items:center;gap:16px;font-size:30px;color:var(--mut);font-weight:500"><span style="width:52px;height:52px;border-radius:50%;background:var(--g);display:flex;align-items:center;justify-content:center"><svg viewBox="0 0 24 24" style="width:30px;height:30px"><path class="ic" d="M4 5h16v11H9l-5 4z"/></svg></span>WhatsApp da pousada · 02:13</div>
+  <div style="display:flex;justify-content:flex-end;margin-top:26px"><span style="background:#F1EDE7;border-radius:30px;padding:18px 30px;font-size:38px">Tem vaga pra hoje?</span></div>
+  <div id="kAns" style="display:flex;margin-top:18px"><span style="background:var(--g);color:#fff;border-radius:30px;padding:18px 30px;font-size:38px">Tem! Já te mandei o link.</span></div>
+</div>
+<div class="el" id="k24" style="left:300px;top:930px"><div style="width:300px;height:300px;border-radius:50%;background:var(--o);display:flex;flex-direction:column;align-items:center;justify-content:center;box-shadow:0 26px 60px rgba(255,79,31,.35)"><span class="big" style="font-size:130px;color:#000">24h</span><span style="font-size:32px;font-weight:600;color:#000;margin-top:6px">no automático</span></div></div>
+<div class="el card" id="kTotem" style="left:780px;top:960px;width:330px;height:420px;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:20px">
+  <div style="width:150px;height:240px;border-radius:24px;background:#151515;padding:16px;display:flex;flex-direction:column;align-items:center"><div style="width:100%;height:150px;border-radius:12px;background:#fff;display:flex;align-items:center;justify-content:center"><span style="width:60px;height:60px;border-radius:50%;background:var(--o);display:flex;align-items:center;justify-content:center"><svg viewBox="0 0 24 24" style="width:36px;height:36px"><path class="ic" stroke="#000" stroke-width="3" d="M5 12.5l4.5 4.5L19 7.5"/></svg></span></div><i style="width:60px;height:8px;border-radius:4px;background:#FF4F1F;margin-top:24px"></i></div>
+  <div style="font-size:36px;font-weight:600">Check-in no totem</div>
+</div>
+<div class="el" id="kSleep" style="left:540px;top:1240px"><div class="chip" style="height:130px;font-size:48px"><span class="dot" style="width:86px;height:86px;background:#1A1A1A"><svg viewBox="0 0 24 24" style="width:48px;height:48px"><path fill="none" stroke="#fff" stroke-width="2.2" stroke-linejoin="round" d="M20 14A8 8 0 1 1 10 4a7 7 0 0 0 10 10z"/></svg></span>E você? <b class="g" style="margin-left:6px">Dormindo.</b></div></div>
+
+<!-- ================= L · é pra você se -->
+<div class="el" id="lTitle" style="left:540px;top:520px"><div class="big" style="font-size:96px;white-space:nowrap">É pra você se:</div></div>
+<div class="el card" id="lR1" style="left:540px;top:740px;width:900px;height:150px;display:flex;align-items:center;gap:34px;padding:0 40px"><span class="box" style="width:76px;height:76px;border-radius:22px;border:4px solid #D9D2C7;display:flex;align-items:center;justify-content:center;flex:none"><svg viewBox="0 0 24 24" style="width:54px;height:54px;opacity:0"><path fill="none" stroke="#fff" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" d="M5 12.5l4.5 4.5L19 7.5"/></svg></span><span style="font-size:46px;font-weight:600">Tem <span class="g">pousada ou hostel</span></span></div>
+<div class="el card" id="lR2" style="left:540px;top:920px;width:900px;height:150px;display:flex;align-items:center;gap:34px;padding:0 40px"><span class="box" style="width:76px;height:76px;border-radius:22px;border:4px solid #D9D2C7;display:flex;align-items:center;justify-content:center;flex:none"><svg viewBox="0 0 24 24" style="width:54px;height:54px;opacity:0"><path fill="none" stroke="#fff" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" d="M5 12.5l4.5 4.5L19 7.5"/></svg></span><span style="font-size:46px;font-weight:600">Paga <span class="g">comissão</span> pra plataforma</span></div>
+<div class="el card" id="lR3" style="left:540px;top:1120px;width:900px;height:190px;display:flex;align-items:center;gap:34px;padding:0 40px"><span class="box" style="width:76px;height:76px;border-radius:22px;border:4px solid #D9D2C7;display:flex;align-items:center;justify-content:center;flex:none"><svg viewBox="0 0 24 24" style="width:54px;height:54px;opacity:0"><path fill="none" stroke="#fff" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" d="M5 12.5l4.5 4.5L19 7.5"/></svg></span><span style="font-size:46px;font-weight:600;line-height:1.15">Cansou de ser o <span class="g">recepcionista</span> do próprio negócio</span></div>
+</div>
+
+<!-- ================= wipes (green screens) -->
+<div id="wipe">
+  <div class="wtxt" id="gT1" style="top:640px;font-size:92px;font-weight:600;opacity:0">Tá na hora de</div>
+  <div class="wtxt big" id="gT2" style="top:760px;font-size:300px;color:var(--o);opacity:0">mudar.</div>
+</div>
+<div id="wipe2">
+  <div class="wtxt" id="mK" style="top:430px;font-size:80px;font-weight:600;opacity:0">comenta</div>
+  <div class="wtxt big" id="mQ" style="top:540px;font-size:290px;color:var(--o);opacity:0">QUERO</div>
+  <div id="mBox" style="position:absolute;left:90px;right:90px;top:930px;height:140px;border-radius:70px;background:#fff;display:flex;align-items:center;padding:0 22px 0 50px;opacity:0">
+    <span style="font-size:52px;font-weight:600;color:#151515" id="mTyped"></span><span id="mCaret" style="width:4px;height:60px;background:#FF4F1F;margin-left:6px"></span>
+    <span style="flex:1"></span>
+    <span id="mSend" style="width:100px;height:100px;border-radius:50%;background:#E6E0D6;display:flex;align-items:center;justify-content:center"><svg viewBox="0 0 24 24" style="width:52px;height:52px"><path fill="none" stroke="#000" stroke-width="2.4" stroke-linejoin="round" d="M4 12l16-8-6 16-2-6z"/></svg></span>
+  </div>
+  <div id="mLogo" style="position:absolute;left:0;right:0;top:1170px;display:flex;justify-content:center;align-items:center;gap:22px;opacity:0">
+    <svg viewBox="0 0 120 104" style="width:84px;height:73px"><defs><mask id="xm1"><rect width="120" height="104" fill="#fff"/><rect x="74" y="18" width="50" height="68" fill="#000"/></mask></defs><path mask="url(#xm1)" fill-rule="evenodd" d="M120 51.96L90 103.92L30 103.92L0 51.96L30 0L90 0Z M99.21 51.96L79.6 85.92L40.4 85.92L20.79 51.96L40.4 18L79.6 18Z" fill="#FF4F1F"/><rect x="30" y="42.96" width="66" height="18" fill="#FF4F1F"/></svg>
+    <span style="font-size:70px;font-weight:600;color:#fff;letter-spacing:-.02em">Exagon</span>
+  </div>
+</div>
+<div id="capbg"></div>
+<div id="cap"></div>
+<script src="data.js"></script>
+<script src="anim.js"></script>
+</body>
+</html>
