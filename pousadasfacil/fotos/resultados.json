@@ -1,1 +1,31 @@
-{}
+{
+ "bed-and-breakfast-owner": [],
+ "inn-owner-portrait": [],
+ "guesthouse-host-welcoming": [],
+ "small-hotel-owner": [],
+ "brazilian-man-smiling-portrait": [],
+ "brazilian-woman-smiling-portrait": [],
+ "man-coffee-porch-mountains": [],
+ "woman-coffee-balcony-morning": [],
+ "tired-man-desk-night": [],
+ "woman-sleeping-peacefully": [],
+ "traveler-backpack-front-door": [],
+ "hotel-reception-check-in": [],
+ "man-smiling-looking-at-phone": [],
+ "woman-entrepreneur-smiling-laptop": [
+  {
+   "id": "openverse:82c19c4a-ab28-4eb9-977a-c681c7c2daf8",
+   "w": 6720,
+   "h": 4480,
+   "desc": "Women Working",
+   "autor": "Direct Media",
+   "link": "https://stocksnap.io/photo/women-working-EVIDLDTDO3",
+   "licenca": "cc0 1.0",
+   "fonte": "stocksnap",
+   "url": "https://cdn.stocksnap.io/img-thumbs/960w/EVIDLDTDO3.jpg",
+   "thumb": "https://api.openverse.org/v1/images/82c19c4a-ab28-4eb9-977a-c681c7c2daf8/thumb/"
+  }
+ ],
+ "farmhouse-owner": [],
+ "couple-owners-small-business": []
+}
